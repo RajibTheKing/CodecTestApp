@@ -7,14 +7,38 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DACDF2501D1A5496004D431C /* CodecAPI.mm in Sources */ = {isa = PBXBuildFile; fileRef = DACDF24F1D1A5496004D431C /* CodecAPI.mm */; };
+		DACDF2511D1A5496004D431C /* CodecAPI.mm in Sources */ = {isa = PBXBuildFile; fileRef = DACDF24F1D1A5496004D431C /* CodecAPI.mm */; };
+		DACDF2521D1A5496004D431C /* CodecAPI.mm in Sources */ = {isa = PBXBuildFile; fileRef = DACDF24F1D1A5496004D431C /* CodecAPI.mm */; };
+		DACDF26B1D1A5F9F004D431C /* libcommon.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DACDF2671D1A5F9F004D431C /* libcommon.a */; };
+		DACDF26C1D1A5F9F004D431C /* libcommon.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DACDF2671D1A5F9F004D431C /* libcommon.a */; };
+		DACDF26D1D1A5F9F004D431C /* libcommon.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DACDF2671D1A5F9F004D431C /* libcommon.a */; };
+		DACDF26E1D1A5F9F004D431C /* libprocessing.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DACDF2681D1A5F9F004D431C /* libprocessing.a */; };
+		DACDF26F1D1A5F9F004D431C /* libprocessing.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DACDF2681D1A5F9F004D431C /* libprocessing.a */; };
+		DACDF2701D1A5F9F004D431C /* libprocessing.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DACDF2681D1A5F9F004D431C /* libprocessing.a */; };
+		DACDF2711D1A5F9F004D431C /* libwelsdec.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DACDF2691D1A5F9F004D431C /* libwelsdec.a */; };
+		DACDF2721D1A5F9F004D431C /* libwelsdec.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DACDF2691D1A5F9F004D431C /* libwelsdec.a */; };
+		DACDF2731D1A5F9F004D431C /* libwelsdec.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DACDF2691D1A5F9F004D431C /* libwelsdec.a */; };
+		DACDF2741D1A5F9F004D431C /* libwelsenc.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DACDF26A1D1A5F9F004D431C /* libwelsenc.a */; };
+		DACDF2751D1A5F9F004D431C /* libwelsenc.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DACDF26A1D1A5F9F004D431C /* libwelsenc.a */; };
+		DACDF2761D1A5F9F004D431C /* libwelsenc.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DACDF26A1D1A5F9F004D431C /* libwelsenc.a */; };
+		DACDF2831D1A8418004D431C /* TestYUV.yuv in Resources */ = {isa = PBXBuildFile; fileRef = DACDF2821D1A8418004D431C /* TestYUV.yuv */; };
+		DACDF2841D1A8418004D431C /* TestYUV.yuv in Resources */ = {isa = PBXBuildFile; fileRef = DACDF2821D1A8418004D431C /* TestYUV.yuv */; };
+		DACDF2851D1A8418004D431C /* TestYUV.yuv in Resources */ = {isa = PBXBuildFile; fileRef = DACDF2821D1A8418004D431C /* TestYUV.yuv */; };
+		DACDF28B1D1A9B0F004D431C /* TestOutput.wb in Resources */ = {isa = PBXBuildFile; fileRef = DACDF28A1D1A9B0F004D431C /* TestOutput.wb */; };
+		DACDF28C1D1A9B0F004D431C /* TestOutput.wb in Resources */ = {isa = PBXBuildFile; fileRef = DACDF28A1D1A9B0F004D431C /* TestOutput.wb */; };
+		DACDF28D1D1A9B0F004D431C /* TestOutput.wb in Resources */ = {isa = PBXBuildFile; fileRef = DACDF28A1D1A9B0F004D431C /* TestOutput.wb */; };
 		DAFE43581D192025001714BE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DAFE43571D192025001714BE /* main.m */; };
 		DAFE435B1D192025001714BE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DAFE435A1D192025001714BE /* AppDelegate.m */; };
-		DAFE435E1D192025001714BE /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DAFE435D1D192025001714BE /* ViewController.m */; };
+		DAFE435E1D192025001714BE /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = DAFE435D1D192025001714BE /* ViewController.mm */; };
 		DAFE43611D192025001714BE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DAFE435F1D192025001714BE /* Main.storyboard */; };
 		DAFE43631D192025001714BE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DAFE43621D192025001714BE /* Assets.xcassets */; };
 		DAFE43661D192025001714BE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DAFE43641D192025001714BE /* LaunchScreen.storyboard */; };
 		DAFE43711D192025001714BE /* CodecTestAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DAFE43701D192025001714BE /* CodecTestAppTests.m */; };
 		DAFE437C1D192025001714BE /* CodecTestAppUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = DAFE437B1D192025001714BE /* CodecTestAppUITests.m */; };
+		DAFE439B1D194215001714BE /* CodecProcessor.mm in Sources */ = {isa = PBXBuildFile; fileRef = DAFE439A1D194215001714BE /* CodecProcessor.mm */; };
+		DAFE439C1D194215001714BE /* CodecProcessor.mm in Sources */ = {isa = PBXBuildFile; fileRef = DAFE439A1D194215001714BE /* CodecProcessor.mm */; };
+		DAFE439D1D194215001714BE /* CodecProcessor.mm in Sources */ = {isa = PBXBuildFile; fileRef = DAFE439A1D194215001714BE /* CodecProcessor.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,12 +59,24 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		DACDF24E1D1A5496004D431C /* CodecAPI.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = CodecAPI.hpp; path = Controller/CodecAPI.hpp; sourceTree = "<group>"; };
+		DACDF24F1D1A5496004D431C /* CodecAPI.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = CodecAPI.mm; path = Controller/CodecAPI.mm; sourceTree = "<group>"; };
+		DACDF2631D1A5F9F004D431C /* codec_api.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = codec_api.h; path = OpenH264/codec_api.h; sourceTree = "<group>"; };
+		DACDF2641D1A5F9F004D431C /* codec_app_def.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = codec_app_def.h; path = OpenH264/codec_app_def.h; sourceTree = "<group>"; };
+		DACDF2651D1A5F9F004D431C /* codec_def.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = codec_def.h; path = OpenH264/codec_def.h; sourceTree = "<group>"; };
+		DACDF2661D1A5F9F004D431C /* codec_ver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = codec_ver.h; path = OpenH264/codec_ver.h; sourceTree = "<group>"; };
+		DACDF2671D1A5F9F004D431C /* libcommon.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcommon.a; path = OpenH264/libcommon.a; sourceTree = "<group>"; };
+		DACDF2681D1A5F9F004D431C /* libprocessing.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libprocessing.a; path = OpenH264/libprocessing.a; sourceTree = "<group>"; };
+		DACDF2691D1A5F9F004D431C /* libwelsdec.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libwelsdec.a; path = OpenH264/libwelsdec.a; sourceTree = "<group>"; };
+		DACDF26A1D1A5F9F004D431C /* libwelsenc.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libwelsenc.a; path = OpenH264/libwelsenc.a; sourceTree = "<group>"; };
+		DACDF2821D1A8418004D431C /* TestYUV.yuv */ = {isa = PBXFileReference; lastKnownFileType = file; path = TestYUV.yuv; sourceTree = "<group>"; };
+		DACDF28A1D1A9B0F004D431C /* TestOutput.wb */ = {isa = PBXFileReference; lastKnownFileType = file; path = TestOutput.wb; sourceTree = "<group>"; };
 		DAFE43531D192024001714BE /* CodecTestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CodecTestApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAFE43571D192025001714BE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		DAFE43591D192025001714BE /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		DAFE435A1D192025001714BE /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		DAFE435C1D192025001714BE /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		DAFE435D1D192025001714BE /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		DAFE435D1D192025001714BE /* ViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ViewController.mm; sourceTree = "<group>"; };
 		DAFE43601D192025001714BE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DAFE43621D192025001714BE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DAFE43651D192025001714BE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -51,6 +87,8 @@
 		DAFE43771D192025001714BE /* CodecTestAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CodecTestAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAFE437B1D192025001714BE /* CodecTestAppUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CodecTestAppUITests.m; sourceTree = "<group>"; };
 		DAFE437D1D192025001714BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DAFE43991D194215001714BE /* CodecProcessor.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = CodecProcessor.hpp; path = Controller/CodecProcessor.hpp; sourceTree = "<group>"; };
+		DAFE439A1D194215001714BE /* CodecProcessor.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = CodecProcessor.mm; path = Controller/CodecProcessor.mm; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +96,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DACDF26E1D1A5F9F004D431C /* libprocessing.a in Frameworks */,
+				DACDF26B1D1A5F9F004D431C /* libcommon.a in Frameworks */,
+				DACDF2711D1A5F9F004D431C /* libwelsdec.a in Frameworks */,
+				DACDF2741D1A5F9F004D431C /* libwelsenc.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,6 +107,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DACDF26F1D1A5F9F004D431C /* libprocessing.a in Frameworks */,
+				DACDF26C1D1A5F9F004D431C /* libcommon.a in Frameworks */,
+				DACDF2721D1A5F9F004D431C /* libwelsdec.a in Frameworks */,
+				DACDF2751D1A5F9F004D431C /* libwelsenc.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,15 +118,38 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DACDF2701D1A5F9F004D431C /* libprocessing.a in Frameworks */,
+				DACDF26D1D1A5F9F004D431C /* libcommon.a in Frameworks */,
+				DACDF2731D1A5F9F004D431C /* libwelsdec.a in Frameworks */,
+				DACDF2761D1A5F9F004D431C /* libwelsenc.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DACDF2771D1A5FB0004D431C /* OpenH264 */ = {
+			isa = PBXGroup;
+			children = (
+				DACDF2631D1A5F9F004D431C /* codec_api.h */,
+				DACDF2641D1A5F9F004D431C /* codec_app_def.h */,
+				DACDF2651D1A5F9F004D431C /* codec_def.h */,
+				DACDF2661D1A5F9F004D431C /* codec_ver.h */,
+				DACDF2671D1A5F9F004D431C /* libcommon.a */,
+				DACDF2681D1A5F9F004D431C /* libprocessing.a */,
+				DACDF2691D1A5F9F004D431C /* libwelsdec.a */,
+				DACDF26A1D1A5F9F004D431C /* libwelsenc.a */,
+			);
+			name = OpenH264;
+			sourceTree = "<group>";
+		};
 		DAFE434A1D192024001714BE = {
 			isa = PBXGroup;
 			children = (
+				DACDF28A1D1A9B0F004D431C /* TestOutput.wb */,
+				DACDF2821D1A8418004D431C /* TestYUV.yuv */,
+				DACDF2771D1A5FB0004D431C /* OpenH264 */,
+				DAFE438D1D1935D6001714BE /* Controller */,
 				DAFE43551D192025001714BE /* CodecTestApp */,
 				DAFE436F1D192025001714BE /* CodecTestAppTests */,
 				DAFE437A1D192025001714BE /* CodecTestAppUITests */,
@@ -104,7 +173,7 @@
 				DAFE43591D192025001714BE /* AppDelegate.h */,
 				DAFE435A1D192025001714BE /* AppDelegate.m */,
 				DAFE435C1D192025001714BE /* ViewController.h */,
-				DAFE435D1D192025001714BE /* ViewController.m */,
+				DAFE435D1D192025001714BE /* ViewController.mm */,
 				DAFE435F1D192025001714BE /* Main.storyboard */,
 				DAFE43621D192025001714BE /* Assets.xcassets */,
 				DAFE43641D192025001714BE /* LaunchScreen.storyboard */,
@@ -138,6 +207,17 @@
 				DAFE437D1D192025001714BE /* Info.plist */,
 			);
 			path = CodecTestAppUITests;
+			sourceTree = "<group>";
+		};
+		DAFE438D1D1935D6001714BE /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				DACDF24E1D1A5496004D431C /* CodecAPI.hpp */,
+				DACDF24F1D1A5496004D431C /* CodecAPI.mm */,
+				DAFE43991D194215001714BE /* CodecProcessor.hpp */,
+				DAFE439A1D194215001714BE /* CodecProcessor.mm */,
+			);
+			name = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -244,6 +324,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				DAFE43661D192025001714BE /* LaunchScreen.storyboard in Resources */,
+				DACDF28B1D1A9B0F004D431C /* TestOutput.wb in Resources */,
+				DACDF2831D1A8418004D431C /* TestYUV.yuv in Resources */,
 				DAFE43631D192025001714BE /* Assets.xcassets in Resources */,
 				DAFE43611D192025001714BE /* Main.storyboard in Resources */,
 			);
@@ -253,6 +335,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DACDF2841D1A8418004D431C /* TestYUV.yuv in Resources */,
+				DACDF28C1D1A9B0F004D431C /* TestOutput.wb in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -260,6 +344,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DACDF2851D1A8418004D431C /* TestYUV.yuv in Resources */,
+				DACDF28D1D1A9B0F004D431C /* TestOutput.wb in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -270,8 +356,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DAFE435E1D192025001714BE /* ViewController.m in Sources */,
+				DAFE435E1D192025001714BE /* ViewController.mm in Sources */,
+				DACDF2501D1A5496004D431C /* CodecAPI.mm in Sources */,
 				DAFE435B1D192025001714BE /* AppDelegate.m in Sources */,
+				DAFE439B1D194215001714BE /* CodecProcessor.mm in Sources */,
 				DAFE43581D192025001714BE /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -281,6 +369,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				DAFE43711D192025001714BE /* CodecTestAppTests.m in Sources */,
+				DAFE439C1D194215001714BE /* CodecProcessor.mm in Sources */,
+				DACDF2511D1A5496004D431C /* CodecAPI.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -289,6 +379,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				DAFE437C1D192025001714BE /* CodecTestAppUITests.m in Sources */,
+				DAFE439D1D194215001714BE /* CodecProcessor.mm in Sources */,
+				DACDF2521D1A5496004D431C /* CodecAPI.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -353,7 +445,7 @@
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_OPTIMIZATION_LEVEL = s;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -364,7 +456,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/OpenH264/\"";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -403,7 +496,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/OpenH264/\"";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -416,7 +510,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = CodecTestApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/OpenH264",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = RingID.CodecTestApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -427,7 +526,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = CodecTestApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/OpenH264",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = RingID.CodecTestApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -439,6 +543,10 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = CodecTestAppTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/OpenH264",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = RingID.CodecTestAppTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CodecTestApp.app/CodecTestApp";
@@ -451,6 +559,10 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = CodecTestAppTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/OpenH264",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = RingID.CodecTestAppTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CodecTestApp.app/CodecTestApp";
@@ -462,6 +574,10 @@
 			buildSettings = {
 				INFOPLIST_FILE = CodecTestAppUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/OpenH264",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = RingID.CodecTestAppUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_TARGET_NAME = CodecTestApp;
@@ -473,6 +589,10 @@
 			buildSettings = {
 				INFOPLIST_FILE = CodecTestAppUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/OpenH264",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = RingID.CodecTestAppUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_TARGET_NAME = CodecTestApp;
@@ -498,6 +618,7 @@
 				DAFE43821D192025001714BE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		DAFE43831D192025001714BE /* Build configuration list for PBXNativeTarget "CodecTestAppTests" */ = {
 			isa = XCConfigurationList;
@@ -506,6 +627,7 @@
 				DAFE43851D192025001714BE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		DAFE43861D192025001714BE /* Build configuration list for PBXNativeTarget "CodecTestAppUITests" */ = {
 			isa = XCConfigurationList;
@@ -514,6 +636,7 @@
 				DAFE43881D192025001714BE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
