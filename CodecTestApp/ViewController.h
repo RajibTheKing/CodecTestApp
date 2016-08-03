@@ -31,6 +31,7 @@ using namespace std;
 
 -(void)WriteToFile:(unsigned char *)pData  withLen:(int)iLen;
 -(void)WriteToFileWithPath:(unsigned char *)pData  withLen:(int)iLen withPath:(string)sPath;
+long long  CurrentTimestamp();
 
 @end
 

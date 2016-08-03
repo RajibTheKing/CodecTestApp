@@ -9,7 +9,10 @@
 #import "ViewController.h"
 #include "CodecAPI.hpp"
 
-
+#define TARGET_OS_IPHONE
+double avg = 0;
+double sum = 0;
+int avgCounter = 0;
 
 @interface ViewController ()
 
@@ -46,6 +49,7 @@
 
 - (void)StartOperation
 {
+    
     for(int k=0;k<3;k++)
     {
         memset(m_ucaDummmyFrame[k], 0, sizeof(m_ucaDummmyFrame[k]));
@@ -67,32 +71,114 @@
     FILE *fp = fopen(filePath.c_str(), "rb");
     unsigned char ucVideoData[352*288*3];
     
-    NSString *dataFileOutput = [[NSBundle mainBundle] pathForResource:@"TestOutput" ofType:@"wb"];
+    /*NSString *dataFileOutput = [[NSBundle mainBundle] pathForResource:@"TestOutput" ofType:@"wb"];
     NSLog(@"%@",dataFileOutput);
-    string sOutputFilePath = string([dataFileOutput UTF8String]);
+    string sOutputFilePath = string([dataFileOutput UTF8String]);*/
     
-    int NumberOfFrameOperation = 100;
+    int NumberOfFrameOperation = 1000;
+
     int iRecvHeight,iRecvWidth;
     
-    CCodecAPI::GetInstance()->CreateVideoEncoder(352, 288, 15, 8);
+    CCodecAPI::GetInstance()->CreateVideoEncoder(352, 288, 30, 60);
     CCodecAPI::GetInstance()->CreateVideoDecoder();
+    
+    long long start_time = CurrentTimestamp();
     
     for(int i=0;i<NumberOfFrameOperation;i++)
     {
         usleep(66*1000);
         fread(ucVideoData, 352*288*3/2, 1, fp);
         int iEncodedLen = CCodecAPI::GetInstance()->EncodeVideoFrame(ucVideoData, 352*288*3/2, m_ucEncodedData);
+        unsigned char *p = m_ucEncodedData;
+        
+        int nalType = p[2] == 1 ? (p[3] & 0x1f) : (p[4] & 0x1f);
+        
+        printf("nalType = %d\n", nalType);
+        
+        
+        /*printf("Real Encoded Data: ");
+        for(int i=0;i<1000;i++)
+        {
+            printf("%X ", m_ucEncodedData[i]);
+            //if(i%288==0) printf("\n");
+        }
+        printf("\n");*/
+        
+        
+        
+        
+        /*unsigned char c = m_ucEncodedData[0];
+        printf("%d\n", c);
+        for(int i=0;i<8;i++)
+        {
+            if(c&(1<<i)) printf("1");
+            else    printf("0");
+        }
+        printf("\n");
+        */
+        
+        //if((i)%19==0) continue;
+        //[self WriteToFile:m_ucEncodedData withLen:iEncodedLen];
         
         int iDecodedLen = CCodecAPI::GetInstance()->DecodeVideoFrame(m_ucEncodedData, iEncodedLen, m_ucDecodedData, iRecvHeight, iRecvWidth);
         
-        [self WriteToFile:m_ucDecodedData withLen:iDecodedLen];
+        //[self WriteToFile:m_ucDecodedData withLen:iDecodedLen];
         
         //[self WriteToFileWithPath:m_ucDecodedData withLen:iDecodedLen withPath:sOutputFilePath]; //can't get write access, ios doesn't permit
-        
-        printf("%d-->  iEncodedLen = %d, iDecodedLen = %d iHeight = %d, iWidth = %d\n", i, iEncodedLen, iDecodedLen,  iRecvHeight, iRecvWidth);
+        //if(nalType==7) break;
+        //printf("%d-->  iEncodedLen = %d, iDecodedLen = %d iHeight = %d, iWidth = %d\n", i, iEncodedLen, iDecodedLen,  iRecvHeight, iRecvWidth);
         
     }
+    fclose(fpyuv);
+    long long totalExecutionTime = CurrentTimestamp()- start_time;
+    printf("Completion time = %lld\n", totalExecutionTime);
+    avgCounter++;
+    sum+=(double)totalExecutionTime;
+    avg = sum/avgCounter;
+    printf("Counter = %d, Completion time average = %lf\n", avgCounter,  avg);
+    
 }
+long long  CurrentTimestamp()
+{
+    long long currentTime;
+    
+#if defined(TARGET_OS_WINDOWS_PHONE) || defined (_DESKTOP_C_SHARP_) || defined (_WIN32)
+    
+    currentTime = GetTickCount64();
+    
+#elif defined(TARGET_OS_IPHONE) || defined(__ANDROID__) || defined(TARGET_IPHONE_SIMULATOR)
+    
+    namespace sc = std::chrono;
+    
+    auto time = sc::system_clock::now(); // get the current time
+    auto since_epoch = time.time_since_epoch(); // get the duration since epoch
+    
+    // I don't know what system_clock returns
+    // I think it's uint64_t nanoseconds since epoch
+    // Either way this duration_cast will do the right thing
+    
+    auto millis = sc::duration_cast<sc::milliseconds>(since_epoch);
+    
+    currentTime = millis.count(); // just like java (new Date()).getTime();
+    
+#elif defined(__linux__) || defined (__APPLE__)
+    
+    struct timeval te;
+    
+    gettimeofday(&te, NULL);
+    
+    currentTime = te.tv_sec* +te.tv_sec * 1000LL + te.tv_usec / 1000;
+    
+#else
+    
+    currentTime = 0;
+    
+#endif
+    
+    return currentTime;
+    
+}
+
 
 -(void)WriteToFile:(unsigned char *)pData  withLen:(int)iLen
 {
