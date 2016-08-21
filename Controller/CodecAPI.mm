@@ -77,6 +77,7 @@ int CCodecAPI::CreateVideoEncoder(int nVideoHeight, int nVideoWidth, int nFPS, i
     encoderParemeters.iLtrMarkPeriod = 20;
     encoderParemeters.bPrefixNalAddingCtrl = false;
     encoderParemeters.iSpatialLayerNum = 1;
+    encoderParemeters.iEntropyCodingModeFlag = 1;
     
     
     SSpatialLayerConfig *spartialLayerConfiguration = &encoderParemeters.sSpatialLayers[0];
