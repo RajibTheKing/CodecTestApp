@@ -79,7 +79,7 @@ int avgCounter = 0;
 
     int iRecvHeight,iRecvWidth;
     
-    CCodecAPI::GetInstance()->CreateVideoEncoder(352, 288, 30, 60);
+    CCodecAPI::GetInstance()->CreateVideoEncoder(352, 288, 30, 15);
     CCodecAPI::GetInstance()->CreateVideoDecoder();
     
     long long start_time = CurrentTimestamp();
@@ -96,13 +96,13 @@ int avgCounter = 0;
         printf("nalType = %d\n", nalType);
         
         
-        /*printf("Real Encoded Data: ");
+        printf("Real Encoded Data: ");
         for(int i=0;i<1000;i++)
         {
-            printf("%X ", m_ucEncodedData[i]);
+            printf("%02X ", m_ucEncodedData[i]);
             //if(i%288==0) printf("\n");
         }
-        printf("\n");*/
+        printf("\n");
         
         
         
@@ -125,8 +125,11 @@ int avgCounter = 0;
         //[self WriteToFile:m_ucDecodedData withLen:iDecodedLen];
         
         //[self WriteToFileWithPath:m_ucDecodedData withLen:iDecodedLen withPath:sOutputFilePath]; //can't get write access, ios doesn't permit
-        //if(nalType==7) break;
-        //printf("%d-->  iEncodedLen = %d, iDecodedLen = %d iHeight = %d, iWidth = %d\n", i, iEncodedLen, iDecodedLen,  iRecvHeight, iRecvWidth);
+       
+        printf("%d-->  iEncodedLen = %d, iDecodedLen = %d iHeight = %d, iWidth = %d\n", i, iEncodedLen, iDecodedLen,  iRecvHeight, iRecvWidth);
+        printf("\n\n");
+        if(i>=5)
+            break;
         
     }
     fclose(fpyuv);

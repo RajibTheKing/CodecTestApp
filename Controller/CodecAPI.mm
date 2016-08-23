@@ -61,10 +61,10 @@ int CCodecAPI::CreateVideoEncoder(int nVideoHeight, int nVideoWidth, int nFPS, i
     encoderParemeters.iLoopFilterBetaOffset = 0;
     encoderParemeters.iMultipleThreadIdc = 0;
     
-    encoderParemeters.iRCMode = RC_OFF_MODE;
-    /*encoderParemeters.iRCMode = RC_BITRATE_MODE;
+    //encoderParemeters.iRCMode = RC_OFF_MODE;
+    encoderParemeters.iRCMode = RC_BITRATE_MODE;
     encoderParemeters.iMinQp = 0;
-    encoderParemeters.iMaxQp = 52;*/
+    encoderParemeters.iMaxQp = 52;
 
     
     
