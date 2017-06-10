@@ -16,8 +16,14 @@ using namespace std;
     unsigned char m_ucaDummmyFrame[10][352*288*3/2];
     unsigned char m_ucEncodedData[352*288*3/2];
     unsigned char m_ucDecodedData[352*288*3/2];
+    unsigned char m_ucaInputData[1000*1000*90]; //almost 90 MB  size
+    FILE *fpInputFile;
+    FILE *fpOutputFile;
     FILE *fpyuv;
     FILE *fpWithPath;
+    
+    int m_iHeight;
+    int m_iWidth;
     
     
 }
@@ -30,7 +36,12 @@ using namespace std;
 - (void)StartOperation;
 
 -(void)WriteToFile:(unsigned char *)pData  withLen:(int)iLen;
--(void)WriteToFileWithPath:(unsigned char *)pData  withLen:(int)iLen withPath:(string)sPath;
+- (void)OpenFileByName:(FILE **)fp withFileName:(NSString *)fileName;
+-(long long)GetDataLenFromFile:(FILE **)fp;
+-(void)EncodeDecodeFromH264File:(unsigned char *)pData withLen:(int) ilen;
+
+-(void)EncodeDecodeFromYUVFile;
+
 long long  CurrentTimestamp();
 
 @end

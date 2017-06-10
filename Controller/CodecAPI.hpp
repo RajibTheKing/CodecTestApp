@@ -22,7 +22,7 @@ using namespace std;
 #define DEFAULT_FPS 30
 #define DEFAULT_FRAME_INTRA_PERIOD 15
 
-#define BITRATE_BEGIN 5000000
+#define BITRATE_BEGIN 600000
 
 class CCodecAPI
 {

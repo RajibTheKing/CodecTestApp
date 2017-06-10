@@ -8,6 +8,11 @@
 
 #import "ViewController.h"
 #include "CodecAPI.hpp"
+#include "ts.h"
+
+
+using namespace ts;
+
 
 #define TARGET_OS_IPHONE
 double avg = 0;
@@ -26,6 +31,8 @@ int avgCounter = 0;
     
     fpyuv = NULL;
     fpWithPath = NULL;
+    fpInputFile = NULL;
+    fpOutputFile = NULL;
     
 }
 
@@ -42,6 +49,27 @@ int avgCounter = 0;
     dispatch_queue_t OperationThreadQ = dispatch_queue_create("OperationThreadQ",DISPATCH_QUEUE_CONCURRENT);
     dispatch_async(OperationThreadQ, ^{
         [self StartOperation];
+        
+        
+        /*NSString *dataFile = [[NSBundle mainBundle] pathForResource:@"lowRes" ofType:@"ts"];
+        NSLog(@"%@",dataFile);
+        std::string filePath = std::string([dataFile UTF8String]);
+        
+        
+        NSFileHandle *handle;
+        NSArray *Docpaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+        NSString *documentsDirectory = [Docpaths objectAtIndex:0];
+        NSString *filePathyuv = [documentsDirectory stringByAppendingPathComponent:@"lowRes.264"];
+        handle = [NSFileHandle fileHandleForUpdatingAtPath:filePathyuv];
+        //char *filePathcharyuv = (char*)[filePathyuv UTF8String];
+        
+        
+        
+        
+        demuxer *dm = new demuxer();
+        double fps = 30;
+        dm->demux_file(filePath.c_str(), &fps);*/
+        
     });
     
     
@@ -49,65 +77,214 @@ int avgCounter = 0;
 
 - (void)StartOperation
 {
+    m_iWidth = 352;
+    m_iHeight = 288;
     
     for(int k=0;k<3;k++)
     {
         memset(m_ucaDummmyFrame[k], 0, sizeof(m_ucaDummmyFrame[k]));
         
-        for(int i=0;i<352;i++)
+        for(int i=0;i<m_iHeight;i++)
         {
             int color = rand()%255;
-            for(int j = 0; j < 288; j ++)
+            for(int j = 0; j < m_iWidth; j ++)
             {
-                m_ucaDummmyFrame[k][i * 352 + j ] = color;
+                m_ucaDummmyFrame[k][i * m_iWidth + j ] = color;
             }
             
         }
     }
     
-    NSString *dataFile = [[NSBundle mainBundle] pathForResource:@"TestYUV" ofType:@"yuv"];
-    NSLog(@"%@",dataFile);
-    std::string filePath = std::string([dataFile UTF8String]);
-    FILE *fp = fopen(filePath.c_str(), "rb");
-    unsigned char ucVideoData[352*288*3];
+    //NSString *dataFile = [[NSBundle mainBundle] pathForResource:@"test" ofType:@"h264"];
+    //NSLog(@"%@",dataFile);
+    //std::string filePath = std::string([dataFile UTF8String]);
     
-    /*NSString *dataFileOutput = [[NSBundle mainBundle] pathForResource:@"TestOutput" ofType:@"wb"];
-    NSLog(@"%@",dataFileOutput);
-    string sOutputFilePath = string([dataFileOutput UTF8String]);*/
+    std::string filePath = "/Users/RajibTheKing/Desktop/VideoDump/newDump/1058021496838398237.h264";
+    fpInputFile = fopen(filePath.c_str(), "rb");
     
-    int NumberOfFrameOperation = 1000;
+    //NSString *dataFileOutput = [[NSBundle mainBundle] pathForResource:@"TestOutput" ofType:@"wb"];
+    //NSLog(@"%@",dataFileOutput);
+    //string sOutputFilePath = string([dataFileOutput UTF8String]);
+    
+    std::string sOutputFilePath = "/Users/RajibTheKing/Desktop/VideoDump/newDump/1058021496838398237_Processed.yuv420";
+    fpOutputFile = fopen(sOutputFilePath.c_str(), "wb");
+    
+    
+    //[self OpenFileByName:&fpInputFile withFileName:@"test.h264"];
+    long long  iTotalDataLen = [self GetDataLenFromFile:&fpInputFile];
+    cout<<"TheKing--> iTotalDataLen = "<<iTotalDataLen<<endl;
+    fread(m_ucaInputData, iTotalDataLen, 1, fpInputFile);
+    
 
-    int iRecvHeight,iRecvWidth;
     
-    CCodecAPI::GetInstance()->CreateVideoEncoder(352, 288, 30, 15);
+    CCodecAPI::GetInstance()->CreateVideoEncoder(m_iHeight, m_iWidth, 30, 15);
     CCodecAPI::GetInstance()->CreateVideoDecoder();
     
     long long start_time = CurrentTimestamp();
     
-    for(int i=0;i<NumberOfFrameOperation;i++)
+    [self EncodeDecodeFromH264File:m_ucaInputData withLen:(int)iTotalDataLen];
+    //[self EncodeDecodeFromYUVFile];
+    
+    fclose(fpOutputFile);
+    fclose(fpInputFile);
+    fclose(fpyuv);
+    long long totalExecutionTime = CurrentTimestamp()- start_time;
+    printf("Completion time = %lld\n", totalExecutionTime);
+    avgCounter++;
+    sum+=(double)totalExecutionTime;
+    avg = sum/avgCounter;
+    printf("Counter = %d, Completion time average = %lf\n", avgCounter,  avg);
+}
+
+- (void)OpenFileByName:(FILE **)fp withFileName:(NSString *)fileName
+{
+    NSFileHandle *handle;
+    NSArray *Docpaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [Docpaths objectAtIndex:0];
+    NSString *filePathyuv = [documentsDirectory stringByAppendingPathComponent:fileName];
+    handle = [NSFileHandle fileHandleForUpdatingAtPath:filePathyuv];
+    char *filePathcharyuv = (char*)[filePathyuv UTF8String];
+    printf("FilePath = %s\n", filePathcharyuv);
+    
+    *fp = fopen(filePathcharyuv, "rb");
+    
+    printf("Here fp = %d, *fp = %d\n", *fp, **fp);
+    
+    if(*fp==NULL)
     {
-        usleep(66*1000);
-        fread(ucVideoData, 352*288*3/2, 1, fp);
-        int iEncodedLen = CCodecAPI::GetInstance()->EncodeVideoFrame(ucVideoData, 352*288*3/2, m_ucEncodedData);
+        printf("OpenFileByName Error!!!!!!\n");
+    }
+}
+
+-(long long)GetDataLenFromFile:(FILE **)fp
+{
+    long long i_size = 0;
+    if (*fp != NULL)
+    {
+        if (!fseek(*fp, 0, SEEK_END))
+        {
+            i_size = ftell(*fp);
+            fseek(*fp, 0, SEEK_SET);
+        }
+    }
+    else
+    {
+        cout << "file open error\n";
+    }
+    return i_size;
+}
+
+-(void)EncodeDecodeFromH264File:(unsigned char *)pFileArray withLen:(int) iLen;
+{
+    int frameCounterTemp = 0;
+    for (int i = 0; i < iLen - 3;)
+    {
+        if (pFileArray[i] == 0 && pFileArray[i + 1] == 0 && pFileArray[i + 2] == 0 && pFileArray[i + 3] == 1) //found the start of a frame
+        {
+            //cout << "i = " << i << "\n";
+            int iFrameSize = 0;
+            int j;
+            for (j = i + 3;; j++)
+            {
+                if (j == iLen - 1 || (pFileArray[j] == 0 && pFileArray[j + 1] == 0 && pFileArray[j + 2] == 0 && pFileArray[j + 3] == 1 )) //found the end of a frame
+                {
+                    //cout << "j = " << j << "\n";
+                    if (j == iLen - 1)
+                    {
+                        break;
+                    }
+                    iFrameSize = j - i;
+                    if (iFrameSize < 100)
+                    {
+                        continue;
+                    }
+                    
+                    break;
+                }
+            }
+            
+            int nalType = pFileArray[i + 2] == 1 ? (pFileArray[i + 3] & 0x1f) : (pFileArray[i + 4] & 0x1f);
+            if (nalType == 7)
+            {
+                
+                printf("it is a i frame frameCounterTemp = %d\n", frameCounterTemp);
+                frameCounterTemp = 0;
+            }
+            
+            int iDecodedWidth, iDecodedHeight;
+            int iDecodedLen = CCodecAPI::GetInstance()->DecodeVideoFrame(pFileArray+i, iFrameSize, m_ucDecodedData, iDecodedWidth, iDecodedHeight);
+            
+            if (iDecodedLen > 0)
+            {
+                fwrite(m_ucDecodedData, 1, iDecodedWidth * iDecodedHeight * 3 / 2, fpOutputFile);
+                //[self WriteToFile:m_ucDecodedData withLen:iDecodedLen];
+            }
+            
+            printf("\nit is a decodedFrame -- size = %d, H:W = %d:%d\n", iDecodedLen, iDecodedHeight, iDecodedWidth);
+            
+            
+            i = j;
+        }
+        else
+        {
+            cout << "Entered Else\n";
+            i++;
+        }
+    }
+}
+
+-(void)EncodeDecodeFromYUVFile
+{
+    
+     
+    int EncodedIfreshCounter = 0;
+    int NumberOfFrameOperation = 1000;
+    int iRecvHeight,iRecvWidth;
+    unsigned char ucVideoData[m_iHeight*m_iWidth*3];
+    
+    for(int i=0;;i++)
+    {
+        //usleep(66*1000);
+        size_t iRett = fread(ucVideoData, m_iHeight*m_iWidth*3/2, 1, fpInputFile);
+        if(iRett==0) break;
+        
+        int iEncodedLen = CCodecAPI::GetInstance()->EncodeVideoFrame(ucVideoData, m_iHeight*m_iWidth*3/2, m_ucEncodedData);
+        fwrite(m_ucEncodedData, iEncodedLen, 1, fpOutputFile);
+        
         unsigned char *p = m_ucEncodedData;
         
         int nalType = p[2] == 1 ? (p[3] & 0x1f) : (p[4] & 0x1f);
-        
         printf("nalType = %d\n", nalType);
         
+        if(nalType == 7)
+        {
+            EncodedIfreshCounter++;
+        }
+        
+        
+        if(EncodedIfreshCounter>2 && nalType ==7)
+        {
+            for(int i=iEncodedLen-1000; i<iEncodedLen;i++)
+            {
+                m_ucEncodedData[i]=rand()%127;
+            }
+        }
+        
+        
+        unsigned short psEncoded[100];
+        memcpy(psEncoded, m_ucEncodedData, 100);
         
         printf("Real Encoded Data: ");
-        for(int i=0;i<1000;i++)
+        for(int i=0;i<50;i++)
         {
-            printf("%02X ", m_ucEncodedData[i]);
-            //if(i%288==0) printf("\n");
+            printf("%d ", psEncoded[i]);
         }
         printf("\n");
         
         
         
-        
-        /*unsigned char c = m_ucEncodedData[0];
+        /*
+        unsigned char c = m_ucEncodedData[0];
         printf("%d\n", c);
         for(int i=0;i<8;i++)
         {
@@ -120,27 +297,24 @@ int avgCounter = 0;
         //if((i)%19==0) continue;
         //[self WriteToFile:m_ucEncodedData withLen:iEncodedLen];
         
-        int iDecodedLen = CCodecAPI::GetInstance()->DecodeVideoFrame(m_ucEncodedData, iEncodedLen, m_ucDecodedData, iRecvHeight, iRecvWidth);
+        //int iDecodedLen = CCodecAPI::GetInstance()->DecodeVideoFrame(m_ucEncodedData, iEncodedLen, m_ucDecodedData, iRecvHeight, iRecvWidth);
         
         //[self WriteToFile:m_ucDecodedData withLen:iDecodedLen];
         
         //[self WriteToFileWithPath:m_ucDecodedData withLen:iDecodedLen withPath:sOutputFilePath]; //can't get write access, ios doesn't permit
-       
+        int iDecodedLen;
+        //fwrite(m_ucDecodedData, iDecodedLen, 1, fpOutputFile);
+        
         printf("%d-->  iEncodedLen = %d, iDecodedLen = %d iHeight = %d, iWidth = %d\n", i, iEncodedLen, iDecodedLen,  iRecvHeight, iRecvWidth);
-        printf("\n\n");
-        if(i>=5)
-            break;
+        
+        //break;
+        //if(i>300) break;
         
     }
-    fclose(fpyuv);
-    long long totalExecutionTime = CurrentTimestamp()- start_time;
-    printf("Completion time = %lld\n", totalExecutionTime);
-    avgCounter++;
-    sum+=(double)totalExecutionTime;
-    avg = sum/avgCounter;
-    printf("Counter = %d, Completion time average = %lf\n", avgCounter,  avg);
+     
     
 }
+
 long long  CurrentTimestamp()
 {
     long long currentTime;
@@ -191,7 +365,7 @@ long long  CurrentTimestamp()
         NSFileHandle *handle;
         NSArray *Docpaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
         NSString *documentsDirectory = [Docpaths objectAtIndex:0];
-        NSString *filePathyuv = [documentsDirectory stringByAppendingPathComponent:@"NextDataCheck.yuv"];
+        NSString *filePathyuv = [documentsDirectory stringByAppendingPathComponent:@"OutPut.yuv"];
         handle = [NSFileHandle fileHandleForUpdatingAtPath:filePathyuv];
         char *filePathcharyuv = (char*)[filePathyuv UTF8String];
         fpyuv = fopen(filePathcharyuv, "wb");
@@ -200,29 +374,6 @@ long long  CurrentTimestamp()
     
     printf("Writing to yuv, iLen = %d\n", iLen);
     fwrite(pData, 1, iLen, fpyuv);
-    
-    
-}
-
--(void)WriteToFileWithPath:(unsigned char *)pData  withLen:(int)iLen withPath:(string)sPath
-{
-    
-    if(fpWithPath==NULL)
-    {
-        /*NSFileHandle *handle;
-        NSArray *Docpaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-        NSString *documentsDirectory = [Docpaths objectAtIndex:0];
-        NSString *filePathyuv = [documentsDirectory stringByAppendingPathComponent:@"NextDataCheck.yuv"];
-        handle = [NSFileHandle fileHandleForUpdatingAtPath:filePathyuv];
-        char *filePathcharyuv = (char*)[filePathyuv UTF8String];*/
-        
-        
-        fpWithPath = fopen(sPath.c_str(), "wb");
-    }
-    
-    
-    printf("Writing to yuv, sPath = %s\n", sPath.c_str());
-    fwrite(pData, 1, iLen, fpWithPath);
     
     
 }

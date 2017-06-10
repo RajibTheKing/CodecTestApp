@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DA0BAC011D6C67B50056FD49 /* ts.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DA0BABFF1D6C67B50056FD49 /* ts.cpp */; };
+		DA0BAC021D6C67B50056FD49 /* ts.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DA0BABFF1D6C67B50056FD49 /* ts.cpp */; };
+		DA0BAC031D6C67B50056FD49 /* ts.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DA0BABFF1D6C67B50056FD49 /* ts.cpp */; };
+		DA0BAC061D6C68130056FD49 /* lowRes.ts in Resources */ = {isa = PBXBuildFile; fileRef = DA0BAC051D6C68130056FD49 /* lowRes.ts */; };
+		DA0BAC071D6C68130056FD49 /* lowRes.ts in Resources */ = {isa = PBXBuildFile; fileRef = DA0BAC051D6C68130056FD49 /* lowRes.ts */; };
+		DA0BAC081D6C68130056FD49 /* lowRes.ts in Resources */ = {isa = PBXBuildFile; fileRef = DA0BAC051D6C68130056FD49 /* lowRes.ts */; };
+		DA0BAC0A1D6C6B4F0056FD49 /* lowRes.264 in Resources */ = {isa = PBXBuildFile; fileRef = DA0BAC091D6C6B4F0056FD49 /* lowRes.264 */; };
+		DA0BAC0B1D6C6B4F0056FD49 /* lowRes.264 in Resources */ = {isa = PBXBuildFile; fileRef = DA0BAC091D6C6B4F0056FD49 /* lowRes.264 */; };
+		DA0BAC0C1D6C6B4F0056FD49 /* lowRes.264 in Resources */ = {isa = PBXBuildFile; fileRef = DA0BAC091D6C6B4F0056FD49 /* lowRes.264 */; };
 		DACDF2501D1A5496004D431C /* CodecAPI.mm in Sources */ = {isa = PBXBuildFile; fileRef = DACDF24F1D1A5496004D431C /* CodecAPI.mm */; };
 		DACDF2511D1A5496004D431C /* CodecAPI.mm in Sources */ = {isa = PBXBuildFile; fileRef = DACDF24F1D1A5496004D431C /* CodecAPI.mm */; };
 		DACDF2521D1A5496004D431C /* CodecAPI.mm in Sources */ = {isa = PBXBuildFile; fileRef = DACDF24F1D1A5496004D431C /* CodecAPI.mm */; };
@@ -22,12 +31,6 @@
 		DACDF2741D1A5F9F004D431C /* libwelsenc.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DACDF26A1D1A5F9F004D431C /* libwelsenc.a */; };
 		DACDF2751D1A5F9F004D431C /* libwelsenc.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DACDF26A1D1A5F9F004D431C /* libwelsenc.a */; };
 		DACDF2761D1A5F9F004D431C /* libwelsenc.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DACDF26A1D1A5F9F004D431C /* libwelsenc.a */; };
-		DACDF2831D1A8418004D431C /* TestYUV.yuv in Resources */ = {isa = PBXBuildFile; fileRef = DACDF2821D1A8418004D431C /* TestYUV.yuv */; };
-		DACDF2841D1A8418004D431C /* TestYUV.yuv in Resources */ = {isa = PBXBuildFile; fileRef = DACDF2821D1A8418004D431C /* TestYUV.yuv */; };
-		DACDF2851D1A8418004D431C /* TestYUV.yuv in Resources */ = {isa = PBXBuildFile; fileRef = DACDF2821D1A8418004D431C /* TestYUV.yuv */; };
-		DACDF28B1D1A9B0F004D431C /* TestOutput.wb in Resources */ = {isa = PBXBuildFile; fileRef = DACDF28A1D1A9B0F004D431C /* TestOutput.wb */; };
-		DACDF28C1D1A9B0F004D431C /* TestOutput.wb in Resources */ = {isa = PBXBuildFile; fileRef = DACDF28A1D1A9B0F004D431C /* TestOutput.wb */; };
-		DACDF28D1D1A9B0F004D431C /* TestOutput.wb in Resources */ = {isa = PBXBuildFile; fileRef = DACDF28A1D1A9B0F004D431C /* TestOutput.wb */; };
 		DAFE43581D192025001714BE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DAFE43571D192025001714BE /* main.m */; };
 		DAFE435B1D192025001714BE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DAFE435A1D192025001714BE /* AppDelegate.m */; };
 		DAFE435E1D192025001714BE /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = DAFE435D1D192025001714BE /* ViewController.mm */; };
@@ -59,6 +62,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		DA0BABFC1D6C67B50056FD49 /* ac3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ac3.h; path = TSDemux/ac3.h; sourceTree = "<group>"; };
+		DA0BABFD1D6C67B50056FD49 /* common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = common.h; path = TSDemux/common.h; sourceTree = "<group>"; };
+		DA0BABFE1D6C67B50056FD49 /* h264.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = h264.h; path = TSDemux/h264.h; sourceTree = "<group>"; };
+		DA0BABFF1D6C67B50056FD49 /* ts.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ts.cpp; path = TSDemux/ts.cpp; sourceTree = "<group>"; };
+		DA0BAC001D6C67B50056FD49 /* ts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ts.h; path = TSDemux/ts.h; sourceTree = "<group>"; };
+		DA0BAC051D6C68130056FD49 /* lowRes.ts */ = {isa = PBXFileReference; lastKnownFileType = file; name = lowRes.ts; path = TSDemux/lowRes.ts; sourceTree = "<group>"; };
+		DA0BAC091D6C6B4F0056FD49 /* lowRes.264 */ = {isa = PBXFileReference; lastKnownFileType = file; path = lowRes.264; sourceTree = "<group>"; };
 		DACDF24E1D1A5496004D431C /* CodecAPI.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = CodecAPI.hpp; path = Controller/CodecAPI.hpp; sourceTree = "<group>"; };
 		DACDF24F1D1A5496004D431C /* CodecAPI.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = CodecAPI.mm; path = Controller/CodecAPI.mm; sourceTree = "<group>"; };
 		DACDF2631D1A5F9F004D431C /* codec_api.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = codec_api.h; path = OpenH264/codec_api.h; sourceTree = "<group>"; };
@@ -69,8 +79,6 @@
 		DACDF2681D1A5F9F004D431C /* libprocessing.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libprocessing.a; path = OpenH264/libprocessing.a; sourceTree = "<group>"; };
 		DACDF2691D1A5F9F004D431C /* libwelsdec.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libwelsdec.a; path = OpenH264/libwelsdec.a; sourceTree = "<group>"; };
 		DACDF26A1D1A5F9F004D431C /* libwelsenc.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libwelsenc.a; path = OpenH264/libwelsenc.a; sourceTree = "<group>"; };
-		DACDF2821D1A8418004D431C /* TestYUV.yuv */ = {isa = PBXFileReference; lastKnownFileType = file; path = TestYUV.yuv; sourceTree = "<group>"; };
-		DACDF28A1D1A9B0F004D431C /* TestOutput.wb */ = {isa = PBXFileReference; lastKnownFileType = file; path = TestOutput.wb; sourceTree = "<group>"; };
 		DAFE43531D192024001714BE /* CodecTestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CodecTestApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAFE43571D192025001714BE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		DAFE43591D192025001714BE /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -128,6 +136,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DA0BAC041D6C67BA0056FD49 /* TSDemux */ = {
+			isa = PBXGroup;
+			children = (
+				DA0BABFC1D6C67B50056FD49 /* ac3.h */,
+				DA0BABFD1D6C67B50056FD49 /* common.h */,
+				DA0BABFE1D6C67B50056FD49 /* h264.h */,
+				DA0BABFF1D6C67B50056FD49 /* ts.cpp */,
+				DA0BAC001D6C67B50056FD49 /* ts.h */,
+			);
+			name = TSDemux;
+			sourceTree = "<group>";
+		};
 		DACDF2771D1A5FB0004D431C /* OpenH264 */ = {
 			isa = PBXGroup;
 			children = (
@@ -146,8 +166,9 @@
 		DAFE434A1D192024001714BE = {
 			isa = PBXGroup;
 			children = (
-				DACDF28A1D1A9B0F004D431C /* TestOutput.wb */,
-				DACDF2821D1A8418004D431C /* TestYUV.yuv */,
+				DA0BAC051D6C68130056FD49 /* lowRes.ts */,
+				DA0BAC091D6C6B4F0056FD49 /* lowRes.264 */,
+				DA0BAC041D6C67BA0056FD49 /* TSDemux */,
 				DACDF2771D1A5FB0004D431C /* OpenH264 */,
 				DAFE438D1D1935D6001714BE /* Controller */,
 				DAFE43551D192025001714BE /* CodecTestApp */,
@@ -287,6 +308,7 @@
 				TargetAttributes = {
 					DAFE43521D192024001714BE = {
 						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = MB952926M3;
 					};
 					DAFE436B1D192025001714BE = {
 						CreatedOnToolsVersion = 7.3;
@@ -324,10 +346,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				DAFE43661D192025001714BE /* LaunchScreen.storyboard in Resources */,
-				DACDF28B1D1A9B0F004D431C /* TestOutput.wb in Resources */,
-				DACDF2831D1A8418004D431C /* TestYUV.yuv in Resources */,
 				DAFE43631D192025001714BE /* Assets.xcassets in Resources */,
+				DA0BAC061D6C68130056FD49 /* lowRes.ts in Resources */,
 				DAFE43611D192025001714BE /* Main.storyboard in Resources */,
+				DA0BAC0A1D6C6B4F0056FD49 /* lowRes.264 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -335,8 +357,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DACDF2841D1A8418004D431C /* TestYUV.yuv in Resources */,
-				DACDF28C1D1A9B0F004D431C /* TestOutput.wb in Resources */,
+				DA0BAC0B1D6C6B4F0056FD49 /* lowRes.264 in Resources */,
+				DA0BAC071D6C68130056FD49 /* lowRes.ts in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -344,8 +366,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DACDF2851D1A8418004D431C /* TestYUV.yuv in Resources */,
-				DACDF28D1D1A9B0F004D431C /* TestOutput.wb in Resources */,
+				DA0BAC0C1D6C6B4F0056FD49 /* lowRes.264 in Resources */,
+				DA0BAC081D6C68130056FD49 /* lowRes.ts in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -358,6 +380,7 @@
 			files = (
 				DAFE435E1D192025001714BE /* ViewController.mm in Sources */,
 				DACDF2501D1A5496004D431C /* CodecAPI.mm in Sources */,
+				DA0BAC011D6C67B50056FD49 /* ts.cpp in Sources */,
 				DAFE435B1D192025001714BE /* AppDelegate.m in Sources */,
 				DAFE439B1D194215001714BE /* CodecProcessor.mm in Sources */,
 				DAFE43581D192025001714BE /* main.m in Sources */,
@@ -370,6 +393,7 @@
 			files = (
 				DAFE43711D192025001714BE /* CodecTestAppTests.m in Sources */,
 				DAFE439C1D194215001714BE /* CodecProcessor.mm in Sources */,
+				DA0BAC021D6C67B50056FD49 /* ts.cpp in Sources */,
 				DACDF2511D1A5496004D431C /* CodecAPI.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -380,6 +404,7 @@
 			files = (
 				DAFE437C1D192025001714BE /* CodecTestAppUITests.m in Sources */,
 				DAFE439D1D194215001714BE /* CodecProcessor.mm in Sources */,
+				DA0BAC031D6C67B50056FD49 /* ts.cpp in Sources */,
 				DACDF2521D1A5496004D431C /* CodecAPI.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -509,6 +534,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = MB952926M3;
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = CodecTestApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -525,6 +552,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = MB952926M3;
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = CodecTestApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
